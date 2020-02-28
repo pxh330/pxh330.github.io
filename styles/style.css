@@ -4,11 +4,13 @@
   border-color: black;
   border-width: 4px;
   text-align: center;
+  height: 80%;
+
 }
 
 .yellow-box {
   background-color: #fcbc66;
-  padding: 100px;
+
 
 }
 
