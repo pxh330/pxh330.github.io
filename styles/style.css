@@ -1,17 +1,27 @@
 
-.box {
+.box1 {
   border-style: solid;
   border-color: black;
   border-width: 4px;
   text-align: center;
-  padding-bottom:20vw;
-  background-color: #fcbc66;
+
+
+
+}
+
+.box2 {
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  text-align: center;
+
+  min-height: 100vh;
 
 }
 
 .yellow-box {
 
-
+background-color: #fcbc66;
 
 }
 
