@@ -16,7 +16,9 @@
   background-color: #8dc6bf;
   color: black;
   padding: 50px;
-  margin: 20px 200px 20px 200px;
+  height: 80%;
+  margin-left: 20%;
+  margin-right: 20%;
   font-size:16px;
 
 }
@@ -25,7 +27,9 @@
   background-color: #f97b4f;
   color: black;
   padding: 50px;
-  margin: 20px 200px 20px 200px;
+  height: 80%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 html {
