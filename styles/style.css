@@ -8,11 +8,43 @@ h1 {
 }
 
 p, li {
-  font-size: 16px;    
+  font-size: 13px;
   line-height: 2;
-  /*letter-spacing: 1px;*/
 }
 
 .pic{
 	width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+.box {
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  text-align: center;
+}
+
+.yellow-box {
+  background-color: #fcbc66;
+  padding: 100px;
+
+}
+
+.red-box {
+  background-color: #8dc6bf;
+  color: black;
+  padding: 50px;
+  margin: 20px 200px 20px 200px;
+  font-size:16px;
+  
+}
+
+.blue-box {
+  background-color: #f97b4f;
+  color: black;
+  padding: 50px;
+  margin: 20px 200px 20px 200px;
 }
