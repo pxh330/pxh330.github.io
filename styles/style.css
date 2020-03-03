@@ -17,12 +17,12 @@
 
 .yellow-box {
 
-background-color: #fcbc66;
+background-color: #f9b86f;
 
 }
 
 .red-box {
-  background-color: #8dc6bf;
+  background-color: #a8dee0;
   color: black;
   padding: 50px;
   height: 80%;
@@ -34,7 +34,7 @@ background-color: #fcbc66;
 }
 
 .blue-box {
-  background-color: #f97b4f;
+  background-color: #a7d676;
   color: black;
   padding: 50px;
   height: 80%;
