@@ -3,7 +3,7 @@
   border-style: solid;
   border-color: black;
   border-width: 4px;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .boxb {
@@ -29,6 +29,7 @@ background-color: #fcbc66;
   margin-left: 20%;
   margin-right: 20%;
   font-size:16px;
+  text-align: center;
 
 }
 
