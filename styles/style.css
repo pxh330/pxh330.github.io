@@ -93,11 +93,7 @@ footer{
 
 }
 
-iframe{
-  width: 59%;
-  height: 8.8%;
-  frameborder: 0;
-}
+
 a {
   color: #000;
   text-decoration: none;
@@ -111,3 +107,22 @@ a:hover {
 
 }
 
+.iframe-container {
+  overflow: hidden;
+  padding-top: 57%;
+  position: relative;
+}
+
+.iframe-container iframe {
+  border: 0;
+  height: 37%;
+  left: 10%;
+  position: absolute;
+  top: 0;
+  width: 80%;
+}
+
+/* 4x3 Aspect Ratio */
+.iframe-container-4x3 {
+  padding-top: 75%;
+}
