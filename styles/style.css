@@ -3,7 +3,8 @@
   border-style: solid;
   border-color: black;
   border-width: 4px;
-  /*text-align: center;*/
+  text-align: justify;
+
 }
 
 .boxb {
@@ -11,54 +12,83 @@
   border-color: black;
   border-width: 4px;
   text-align: center;
-  min-height: 100vh;
 
+
+}
+
+.horizontal-box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
 }
 
 .yellow-box {
 
 background-color: #f9b86f;
-
+  max-width: 100%;
+  height: auto;
+  text-align: center;
 }
 
 .red-box {
   background-color: #a8dee0;
   color: black;
-  padding: 50px;
-  height: 80%;
-  margin-left: 20%;
-  margin-right: 20%;
+  padding: 5vw;
+
+  margin-left: 10%;
+
   font-size:16px;
   text-align: center;
-
+  width: 30vw;
+  /*float: left;*/
+  max-width: 100%;
+  height: auto;
 }
 
 .blue-box {
   background-color: #a7d676;
   color: black;
-  padding: 50px;
-  height: 80%;
-  margin-left: 20%;
-  margin-right: 20%;
+  padding: 5vw;
+
   text-align: center;
+  width: 30vw;
+
+  margin-left: 10%;
+  max-width: 100%;
+  height: auto;
 }
 
 html {
   font-size: 16px; /* px means "pixels": the base font size is now 10 pixels high  */
-  font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got from Google fonts */
+  font-family: 'Roboto Condensed', sans-serif;/* this should be the rest of the output you got from Google fonts */
 }
 h1 {
-  font-size: 36px;
+  font-size: 2.8em;
   text-align: center;
+  font-family: 'Cutive Mono', monospace;
 }
-
+h3{
+  font-family: 'Spartan', sans-serif;
+}
 p, li {
-  font-size: 13px;
-  line-height: 2;
+  font-size: 0.9em;
+  line-height: 1.5;
 }
 
 .pic{
 	width: 400px;
+}
 
+footer{
+  display: flex;
+  flex-direction:row;
+  position: relative;
+  bottom: 10px;
 
+}
+
+iframe{
+  width: 60%;
+  height: 9%;
+  frameborder: 0;
 }
