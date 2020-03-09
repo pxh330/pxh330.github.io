@@ -76,11 +76,13 @@ html {
   font-family: 'Work Sans', sans-serif;/* this should be the rest of the output you got from Google fonts */
 }
 h1 {
-  font-size: 5em;
+  font-size: 4.3em;
   text-align: center;
-  font-family: 'Reenie Beanie', cursive;
+  font-family: 'Amatic SC',cursive;
   font-weight: lighter;
+  /*font-family: 'Reenie Beanie', cursive;*/
 }
+
 h3{
   font-family: 'Cabin Sketch', cursive;
   font-weight: lighter;
@@ -132,6 +134,12 @@ a:hover {
   top: 0;
   width: 50%;
 }
+
+#brief{
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 1.3em;
+}
+
 
 /* 4x3 Aspect Ratio */
 .iframe-container-4x3 {
@@ -236,19 +244,19 @@ a:hover {
   animation-name:shake6;
   max-width: 100%;
   height: auto;
-  width: 10%;
-  animation-duration: 2s;
-  animation-iteration-count:infinite;
+  width: 12%;
   position:fixed;
   bottom:50%;
-  left:5%;
+  left:2%;
+  animation-duration: 1s;
+  animation-iteration-count:infinite;
 }
 
 @keyframes shake6 {
-  0% { transform: translate(10px, 1px) rotate(0deg); }
-  20% { transform: translate(-20px, 0px) rotate(40deg); }
-  40% { transform: translate(5px, -10px) rotate(-30deg); }
-  60% { transform: translate(-10px, 10px) rotate(0deg); }
-  80% { transform: translate(-30px, -10px) rotate(60deg); }
-  100% { transform: translate(0px, -20px) rotate(0deg); }
+  0% { transform: translate(-1px, 1px) rotate(0deg); }
+  20% { transform: translate(1px, 0px) rotate(5deg); }
+  40% { transform: translate(0px, -1px) rotate(0deg); }
+  60% { transform: translate(2px, 2px) rotate(-5deg); }
+  80% { transform: translate(1px, -1px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(5deg); }
 }
