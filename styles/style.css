@@ -76,13 +76,20 @@ html {
   font-family: 'Work Sans', sans-serif;/* this should be the rest of the output you got from Google fonts */
 }
 h1 {
-  font-size: 4.3em;
+   font-size: 4.3em;
+   text-align: center;
+   font-family: 'Amatic SC',cursive;
+   font-weight: lighter;
+   /*font-family: 'Reenie Beanie', cursive;*/
+ }
+
+h2 {
+  font-size: 3em;
   text-align: center;
   font-family: 'Amatic SC',cursive;
   font-weight: lighter;
   /*font-family: 'Reenie Beanie', cursive;*/
 }
-
 h3{
   font-family: 'Cabin Sketch', cursive;
   font-weight: lighter;
