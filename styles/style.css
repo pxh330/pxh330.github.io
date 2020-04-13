@@ -74,11 +74,11 @@
 html {
   text-align: center;
   background-color:#fbf7d6;
-  font-size: 16px; /* px means "pixels": the base font size is now 10 pixels high  */
-  font-family: 'Work Sans', sans-serif;/* this should be the rest of the output you got from Google fonts */
+  font-size: 18px; /* px means "pixels": the base font size is now 10 pixels high  */
+  font-family: 'Source Sans Pro', sans-serif;/* this should be the rest of the output you got from Google fonts */
 }
 h1 {
-   font-size: 4.3em;
+   font-size: 6em;
    text-align: center;
    font-family: 'Amatic SC',cursive;
    font-weight: lighter;
@@ -104,8 +104,8 @@ p, li{
 }
 
 .pic{
-  width: 30em;
-  max-width: 100%;
+
+  width: 40%;
   height: auto;
 }
 
@@ -146,11 +146,12 @@ a:hover {
 
 #brief{
   font-family: 'Reenie Beanie', cursive;
-  font-size: 1.3em;
-  max-width:40%;
+  font-size: 1.5em;
+  max-width:75%;
   word-wrap:break-word;
   margin:auto;
 }
+
 
 
 /* 4x3 Aspect Ratio */
@@ -254,9 +255,9 @@ a:hover {
 
 #shaking6 {
   animation-name:shake6;
-  max-width: 100%;
+
   height: auto;
-  width: 12%;
+  width: 14%;
   position:fixed;
   bottom:50%;
   left:2%;
@@ -271,4 +272,33 @@ a:hover {
   60% { transform: translate(2px, 2px) rotate(-5deg); }
   80% { transform: translate(1px, -1px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(5deg); }
+}
+
+.topnav {
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
+
+}
+
+.topnav a {
+  font-family: 'Cabin Sketch', cursive;
+  color: black;
+  text-align: center;
+  padding: 3% 3%;
+  text-decoration:none;
+  font-size: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topnav a:hover {
+  background-color:transparent;
+  color: #006400;
+}
+
+.topnav a.active {
+  background-color: #a8dee0;
+  color: white;
 }
