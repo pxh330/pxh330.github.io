@@ -8,16 +8,42 @@
       <meta name="description" content="Hi everyone! I'm Sharon and this is my personal website. If you by any chance see it, nice to meet you!:)">
 	<link href="styles/style.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
-      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Reenie+Beanie|Open+Sans|Work+Sans|Cabin+Sketch|Amatic+SC|Cutive+Mono|Roboto+Condensed|Roboto+Mono&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Source+Sans+Pro|Reenie+Beanie|Open+Sans|Work+Sans|Cabin+Sketch|Amatic+SC|Cutive+Mono|Roboto+Condensed|Roboto+Mono&display=swap" rel="stylesheet">
   </head>
 
 
 
-  <body>
+  <body id="main">
 
 
+  <!--floating cloud-->
+  <a href="#top"><img src="images/cloud.png" alt="An image of cloud" id="shaking6" ></a>
+
+  <button id="openbtn" onclick="openNav(this.id)" >☰</button>
+  <button id="closebtn" class="hide" onclick="closeNav(this.id)">X</button>
+  <div id="mySidebar" class="sidebar">
+      <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>-->
+      <a href="#">About me! &#160; >&#160;&#160;</a>
+      <a href="#">Techy Stuff  &#160;>&#160;&#160;</a>
+      <a href="#">What I Design &#160; >&#160;&#160;</a>
+      <a href="#">Contact me!  &#160;>&#160;&#160;</a>
+  </div>
 
 <div id="top">
+
+    <header>
+        <div id="hello" class="hello">
+            <hgroup>
+               <!-- <h1 class="font-effect-destruction">Blur effect</h1>-->
+                <p id="slogan" class="font-effect-destruction">To be young, and love.</p>
+            </hgroup>
+        </div>
+        <div id="overlay" class="overlay"></div>
+    </header>
+
+
+
+
     <br><br>
     <img src="images/man1.png" alt="An image of Keith Haring" class="pic" id="shaking1">
     <img src="images/man2.png" alt="An image of Keith Haring" class="pic" id="shaking2">
@@ -29,6 +55,8 @@
     <!--<img src="images/Phillip.png" alt="An image of Phillip" class="pic" id="shaking4">-->
 
     <br><br>   <br><br>   <br><br>
+
+    <!--
     <nav class="topnav">
         <a href="tech">Techy Stuff</a>
         <a href="music">Music I Love</a>
@@ -38,6 +66,21 @@
     </nav>
     <p>____________________________________________________________________________________________</p>
 
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,7 +89,97 @@
 
 
 
-    <div class="horizontal-box">
+    <div class="horizontal-box" >
+
+
+
+
+
+
+
+
+
+
+        <script>
+
+            function openNav(id) {
+                document.getElementById("mySidebar").style.width = "13em";
+                document.getElementById("main").style.marginLeft = "12em";
+                if(id == "closebtn"){
+                    document.getElementById("openbtn").style.display="block";
+                    document.getElementById(id).style.display="none";
+                }else{
+                    document.getElementById("closebtn").style.display="block";
+                    document.getElementById(id).style.display="none";
+                }
+            }
+
+            function closeNav(id) {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+                if(id == "closebtn"){
+                    document.getElementById("openbtn").style.display="block";
+                    document.getElementById(id).style.display="none";
+                }else{
+                    document.getElementById("closebtn").style.display="block";
+                    document.getElementById(id).style.display="none";
+                }
+            }
+
+
+
+            (function() {
+                'user strict';
+                var hello = document.getElementById('hello'),
+                    blur = document.getElementById('overlay'),
+                    windowHeight = window.innerHeight,
+                    isScroll = false;
+
+                var latestScroll = 0;
+                var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                    window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+                window.requestAnimationFrame = requestAnimationFrame;
+
+                var init = function() {
+                    window.addEventListener('scroll', function(){
+                        latestScroll = window.scrollY;
+                        checkScroll();
+                    }, false);
+                }
+
+                var checkScroll = function() {
+                    if(!isScroll) {
+                        window.requestAnimationFrame(update);
+                    }
+                    isScroll = true;
+                }
+
+                var update = function() {
+                    currentScroll = latestScroll;
+                    isScroll = false;
+                    var helloScroll = currentScroll / 4,
+                        blurScroll = currentScroll * 2;
+
+                    hello.style.transform = 'translate3d(0, ' + helloScroll + 'px, 0)';
+                    blur.style.opacity = (blurScroll / windowHeight - .1).toFixed(2);
+                    if(blur.style.opacity >= 1) {
+                        blur.style.opacity = 1;
+                    }
+                }
+
+                init();
+            })();
+        </script>
+
+
+
+
+
+
+
+
+
 
 
         <div class="border-green white-box"><br><br>
@@ -57,7 +190,13 @@
        </p></div>
         <br><br><br><br>
 
-        <a href="#top"><img src="images/cloud.png" alt="An image of cloud" id="shaking6" ></a>
+
+
+
+
+
+
+
 
 
         <div class="border-blue white-box"><br><br>
@@ -95,9 +234,9 @@
                 Yeah, I threw away the key<br>
                     Yeah, I threw away the key<br><br><br></p></div>
 <br><br><br><br><br>
-        <p>View coronavirus cases in UK <a href="coronavirus-update">here</a>.</p><br>
+
          <p>If you like Sharon's website, please find  <a href="cv-page">more</a>  on Sharon's CV!
-        <br></br>Email: <a href="mailto:pxh330@gmail.com">pxh330@gmail.com</a> &#160;&#160;&#160;   Address: Newbury, UK</p>
+        <br></br>Email: <a href="mailto:pxh330@gmail.com">pxh330@gmail.com</a> &#160;&#160;&#160;</p>
         <br><br><br><br>
     </div>
   </body>

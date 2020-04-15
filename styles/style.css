@@ -61,7 +61,7 @@
 }
 
 .white-box{
-  background-color:#fbf7d6;
+
   text-align: center;
   color: black;
   margin:auto;
@@ -71,13 +71,15 @@
   height: auto;
 }
 
-html {
+body {
   text-align: center;
-  background-color:#fbf7d6;
+  background-color:#e1dee6;
   font-size: 18px; /* px means "pixels": the base font size is now 10 pixels high  */
   font-family: 'Source Sans Pro', sans-serif;/* this should be the rest of the output you got from Google fonts */
 }
 h1 {
+  color:black !important;
+  margin:0;
    font-size: 6em;
    text-align: center;
    font-family: 'Amatic SC',cursive;
@@ -109,6 +111,10 @@ p, li{
   height: auto;
 }
 
+#vwpic{
+  width: 100%;
+  height: auto;
+}
 footer{
   display: flex;
   flex-direction:row;
@@ -255,14 +261,14 @@ a:hover {
 
 #shaking6 {
   animation-name:shake6;
-
   height: auto;
-  width: 14%;
+  width: 2%;
   position:fixed;
-  bottom:50%;
-  left:2%;
-  animation-duration: 1s;
+  bottom:5%;
+  right:1%;
+  animation-duration: 2s;
   animation-iteration-count:infinite;
+  z-index: 3;
 }
 
 @keyframes shake6 {
@@ -274,31 +280,151 @@ a:hover {
   100% { transform: translate(1px, -2px) rotate(5deg); }
 }
 
-.topnav {
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 70%;
+
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #e6efcf; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 50px; /* Place content 60px from the top */
+  text-align: right;
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+   /* 0.5 second transition effect to slide in the sidebar */
 
 }
 
-.topnav a {
-  font-family: 'Cabin Sketch', cursive;
+/* The sidebar links */
+.sidebar a {
+  padding: 12px 20px 8px 32px;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #646958;
+display: block;
+  transition: 0.5s;
+
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #9da390;
+}
+
+/* Position and style the close button (top right corner) */
+
+
+#closebtn{
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
   color: black;
+  padding: 10px 15px;
+  border: none;
+  width:4%;
+  position:fixed;
+  bottom:5%;
+}
+
+  /* The button used to open the sidebar */
+#openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  width:4%;
+  position:fixed;
+  bottom:5%;
+  left:3%;
+  z-index: 3;
+
+}
+
+#openbtn:hover {
+  background-color: #e6efcf;
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 10px;
+
+}
+
+.hide {
+  display:none;
+}
+
+header {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/1.jpg") no-repeat;
+  background-size: cover;
+
+  margin: auto;
+}
+.hello {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+hgroup {
+  display: inline-block;
   text-align: center;
-  padding: 3% 3%;
-  text-decoration:none;
-  font-size: 25px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  position: absolute;
+  width: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 211px;
+  margin: auto;
+  color: #fff;
+  z-index: 2;
 
-.topnav a:hover {
-  background-color:transparent;
-  color: #006400;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background:url("../images/1blur.jpg");
+  background-size: cover;
+  z-index: 0;
+  opacity: 0;
+  height: auto;
+}
+*, *::before, *:after {
+  box-sizing: border-box;
+}
+#slogan{
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 1.5em;
+  color: #6e9488 !important;
+  margin: 0;
+font-weight: lighter;
 
-.topnav a.active {
-  background-color: #a8dee0;
-  color: white;
+
 }
