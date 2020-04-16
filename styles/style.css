@@ -262,10 +262,10 @@ a:hover {
 #shaking6 {
   animation-name:shake6;
   height: auto;
-  width: 2%;
+  width: 20px;
   position:fixed;
   bottom:5%;
-  right:1%;
+  right:3%;
   animation-duration: 2s;
   animation-iteration-count:infinite;
   z-index: 3;
@@ -304,7 +304,7 @@ a:hover {
 .sidebar a {
   padding: 12px 20px 8px 32px;
   text-decoration: none;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Ubuntu Condensed", sans-serif;
   font-size: 20px;
   color: #646958;
 display: block;
@@ -327,9 +327,10 @@ display: block;
   color: black;
   padding: 10px 15px;
   border: none;
-  width:4%;
+  width:20px;
   position:fixed;
   bottom:5%;
+  z-index: 5;
 }
 
   /* The button used to open the sidebar */
@@ -338,18 +339,19 @@ display: block;
   cursor: pointer;
   background-color: transparent;
   color: black;
-  padding: 10px 15px;
+  padding: 15px 15px 15px 15px;
   border: none;
-  width:4%;
+  width:3em;
   position:fixed;
   bottom:5%;
   left:3%;
-  z-index: 3;
+  z-index: 4;
 
 }
 
 #openbtn:hover {
   background-color: #e6efcf;
+  z-index: 5;
 }
 
 
