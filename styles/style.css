@@ -430,3 +430,14 @@ font-weight: lighter;
 }
 
 
+@media screen and (max-width: 600px) {
+  .overlay {
+    background: url("../images/mobile1blur.jpg") no-repeat center center;
+    background-size: cover;
+  }
+
+  header {
+    background: url("../images/mobile1.jpg") no-repeat center center;
+    background-size: cover;
+  }
+}
