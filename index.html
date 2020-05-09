@@ -31,6 +31,42 @@
               background-image: url('images/vw.jpg');
 
           }
+          #navDemo{
+              display:none;
+              z-index:5;
+              width:250px;
+
+          }
+          .menu-item:after {
+              background: none repeat scroll 0 0 transparent;
+              bottom: 0;
+              content: "";
+              display: block;
+              height: 1px;
+              left: 50%;
+              position: absolute;
+              background: grey;
+              transition: width 0.1s ease 0s, left 0.5s ease 0s;
+              width: 0;
+          }
+          .menu-item:hover:after {
+              width: 100%;
+              left: 0;
+          }
+          .menu-item:focus{
+              border-left-style: solid;
+              border-color: black;
+
+          }
+          .menu-item{
+              color: black;
+              text-transform: uppercase;
+              text-decoration: none;
+              letter-spacing: 0.15em;
+              display: inline-block;
+              padding: 15px 20px;
+              position: relative;
+          }
 
           @media only screen and (max-device-width: 1600px) {
               .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -38,15 +74,16 @@
                   min-height: 580px;
               }
           }
+
       </style>
   </head>
 
-  <body>
+  <body class="w3-content" style="max-width:1600px">
 
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
       <div class="w3-bar w3-padding w3-theme w3-card" id="myNavbar">
-          <a class="w3-bar-item w3-button w3-hover-sand w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+          <a class="w3-bar-item w3-button w3-hover-sand w3-hide-large w3-right"  onclick="w3_open()" title="Toggle Navigation Menu">
               <i class="fa fa-bars"></i>
           </a>
           <div class="w3-text-dark-gray ">
@@ -54,27 +91,27 @@
                   <a href="#" class="w3-wide w3-bar-item w3-button w3-hover-none  w3-hover-text-theme "><b>Xiaohan's</b> World</a>
               </div>
               <div class="w3-col s1 w3-right">
-                  <a href="#contact" class="w3-bar-item w3-button w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">Contact</a>
+                  <a href="#contact" class="menu-item w3-bar-item w3-button w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">Contact</a>
               </div>
-
-              <div class="w3-col s1 w3-right" >
-                  <a href="#techy" class="w3-bar-item w3-button w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">Get Techy</a>
+              <div class="w3-col s1 w3-right" style="width:7%">
+                  <a href="#techy" class="menu-item w3-bar-item w3-button w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">Techy</a>
               </div>
-              <div class="w3-col s1 w3-right"style="width:8%">
-                  <a href="#design" class="w3-bar-item w3-button w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">Aesthetic</a>
+              <div class="w3-col s1 w3-right"style="width:11%">
+                  <a href="#aesthetic" class="menu-item w3-bar-item w3-button w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">Aesthetic</a>
               </div>
-              <div class="w3-col s1 w3-right" style="width:9%">
-                  <a href="#about" class="w3-bar-item w3-button  w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">About me</a>
+              <div class="w3-col s1 w3-right" style="width:6%">
+                  <a href="#about" class="menu-item w3-bar-item w3-button  w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium"><b>Me</b></a>
               </div>
           </div>
 
       </div>
-      <div class="w3-sidebar w3-bar-block w3-hide-large w3-animate-left" style="display:none;z-index:5" id="navDemo">
+      <br><br><br>
+      <!--<div class="w3-sidebar w3-bar-block w3-hide-large w3-animate-left" style="display:none;z-index:5" id="navDemo">
           <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
           <a href="#" class="w3-bar-item w3-button">Link 1</a>
           <a href="#" class="w3-bar-item w3-button">Link 2</a>
           <a href="#" class="w3-bar-item w3-button">Link 3</a>
-      </div>
+      </div>-->
       <!-- Navbar on small screens -->
       <!--<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-animate-left">
           <a href="#about" class="w3-bar-item w3-button w3-hover-sand" onclick="toggleFunction()">About me!</a>
@@ -83,11 +120,23 @@
           <a href="#contact" class="w3-bar-item w3-button w3-hover-sand" onclick="toggleFunction()">Contact me</a>
       </div>-->
   </div>
+  <!--Sidebar-->
+  <div class="w3-sidebar w3-bar-block w3-hide-large w3-animate-left" id="navDemo">
+      <div class="bar-item">
+      <button class=" w3-button w3-xlarge w3-left w3-hover-none " onclick="location.href=''";><i class="fa fa-home"></i></button>
+      <button class=" w3-button w3-xlarge w3-right w3-hover-none " onclick="w3_close()">&times;</button>
+      </div><br><br><br>
+      <a href="#" class="menu-item w3-bar-item w3-button w3-hover-sand ">Me</a>
+      <a href="#" class="menu-item w3-bar-item w3-button w3-hover-sand ">Aesthetic</a>
+      <a href="#" class="menu-item w3-bar-item w3-button w3-hover-sand ">Techy</a>
+      <a href="#" class="menu-item w3-bar-item w3-button w3-hover-sand ">Contact</a>
+  </div>
 
-  <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+  <!--Overlay part-->
+  <div class="w3-overlay w3-animate-opacity w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
   <div>
-      <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
 
+      <!--Content-->
       <!-- Header -->
   <header class="bgimg-1 w3-display-container w3-animate-opacity" id="home">
       <div class="w3-display-middle w3-center">
