@@ -6,6 +6,7 @@
       <meta charset="utf-8">
       <meta name="author" content="Sharon">
       <meta name="description" content="Hi everyone! I'm Xiaohan(Sharon) and this is my personal website. If you by any chance see it, nice to meet you!:)">
+      <script src="https://kit.fontawesome.com/86ed8435df.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
       <link rel="icon" href="images/icon.jpg">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
@@ -54,8 +55,8 @@
               left: 0;
           }
           .menu-item:focus{
-              border-left-style: solid;
-              border-color: black;
+              border-bottom-style: solid;
+               border-color: black;
 
           }
           .menu-item{
@@ -68,6 +69,27 @@
               position: relative;
           }
 
+          #backtop{
+              animation-name:backshake;
+              height: auto;
+              width:30px;
+              position:fixed;
+              bottom:5%;
+              right:1%;
+              animation-duration: 2s;
+              animation-iteration-count:infinite;
+              z-index: 3;
+          }
+
+          @keyframes backshake {
+              0% { transform: translate(0px, 0px) rotate(0deg); }
+              20% { transform: translate(0px, 5px) rotate(0deg); }
+              40% { transform: translate(0px, 0px) rotate(0deg); }
+              60% { transform: translate(0px, -2px) rotate(0deg); }
+              80% { transform: translate(0px, 1px) rotate(0deg); }
+              100% { transform: translate(0px, 0px) rotate(0deg); }
+          }
+
           @media only screen and (max-device-width: 1600px) {
               .bgimg-1, .bgimg-2, .bgimg-3 {
                   background-attachment: scroll;
@@ -78,10 +100,10 @@
       </style>
   </head>
 
-  <body class="w3-content" style="max-width:1600px">
+  <body class="w3-content" id="top" style="max-width:1600px">
 
   <!-- Navbar (sit on top) -->
-  <div class="w3-top">
+  <div class="w3-top" >
       <div class="w3-bar w3-padding w3-theme w3-card" id="myNavbar">
           <a class="w3-bar-item w3-button w3-hover-sand w3-hide-large w3-right"  onclick="w3_open()" title="Toggle Navigation Menu">
               <i class="fa fa-bars"></i>
@@ -90,7 +112,7 @@
               <div >
                   <a href="#" class="w3-wide w3-bar-item w3-button w3-hover-none  w3-hover-text-theme "><b>Xiaohan's</b> World</a>
               </div>
-              <div class="w3-col s1 w3-right">
+              <div class="w3-col s1 w3-right" style="width:10%">
                   <a href="#contact" class="menu-item w3-bar-item w3-button w3-hover-text-theme w3-hover-none w3-hide-small w3-hide-medium">Contact</a>
               </div>
               <div class="w3-col s1 w3-right" style="width:7%">
@@ -106,20 +128,10 @@
 
       </div>
       <br><br><br>
-      <!--<div class="w3-sidebar w3-bar-block w3-hide-large w3-animate-left" style="display:none;z-index:5" id="navDemo">
-          <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-          <a href="#" class="w3-bar-item w3-button">Link 1</a>
-          <a href="#" class="w3-bar-item w3-button">Link 2</a>
-          <a href="#" class="w3-bar-item w3-button">Link 3</a>
-      </div>-->
-      <!-- Navbar on small screens -->
-      <!--<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-animate-left">
-          <a href="#about" class="w3-bar-item w3-button w3-hover-sand" onclick="toggleFunction()">About me!</a>
-          <a href="#techy" class="w3-bar-item w3-button w3-hover-sand" onclick="toggleFunction()">Techy Stuffs</a>
-          <a href="#design" class="w3-bar-item w3-button w3-hover-sand" onclick="toggleFunction()">What I design</a>
-          <a href="#contact" class="w3-bar-item w3-button w3-hover-sand" onclick="toggleFunction()">Contact me</a>
-      </div>-->
   </div>
+
+
+
   <!--Sidebar-->
   <div class="w3-sidebar w3-bar-block w3-hide-large w3-animate-left" id="navDemo">
       <div class="bar-item">
@@ -135,32 +147,43 @@
   <!--Overlay part-->
   <div class="w3-overlay w3-animate-opacity w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
   <div>
-
+      <a href="#top" ><img  id="backtop" src="images/up.png"></a>
       <!--Content-->
       <!-- Header -->
   <header class="bgimg-1 w3-display-container w3-animate-opacity" id="home">
       <div class="w3-display-middle w3-center">
           <span class="w3-tag w3-wide w3-sand w3-xlarge"><b>&#160;Xiaohan's</b> World&#160;</span>
       </div>
-      <div class="w3-display-bottomright w3-center w3-padding-large w3-hide-small">
-      <span class="w3-tag w3-white w3-text-black">To be young and love.</span>
-      </div>
+
   </header>
 
   <!-- About Container -->
-  <div class="w3-container" id="about">
+  <div class="w3-container">
       <div class="w3-content" style="max-width:700px">
-          <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CAFE</span></h5>
-          <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
+          <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Why Xiaohan built this?</span></h5>
+          <p>If you by any chance see this website, let me give you a big welcome first:). <b>Welcome to Xiaohan's World! </b> </p>
+          <p>I'm Xiaohan, an engineering undergrad who is not very engineering. In my 2nd year of uni, I realized social media gradually became the only way people expressing themselves completely. You put basic info about you on facebook, some memorable moments on instagram, your education and profession on LinkedIn… Everything is formatted and I’m just so tired of using the same layout and wondering if I can make a website of my own, then I can put whatever I want to display on it, my art work, fun techy stuffs… everything.</p>
+          <p>So, here I am. I learned basic html, css, javascript, some front-end frameworks and now as you can see, I’m gradually setting everything up. It’s not easy to learn something from scratch, but I found myself changing and gradually falling in love with what I’m doing along the way. At first my aim was to build a website, but I ended up obtaining front-end knowledge and eventually stepped into the fascinating world of computer science. </p>
+          <p>I didn’t intend to tell a story, but I really want to tell YOU, who has read all of these this far:</p>
           <div class="w3-panel w3-leftbar w3-light-grey">
-              <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
-              <p>Chef, Coffeeist and Owner: Liam Brown</p>
+              <p>Don't be afraid to put on your adventure hat when you see something attractive. Just try it, commit to it, and see how far you can go. People tend to forget about their dreams nowadays, and some even don’t think they have one. I’m here to encourage you to bravely try what you think, which you might be reluctant to do at first. You may encounter something not quite like the way you thought, or something totally new which you haven’t every noticed…... But trust me, keep trying and you can eventually find what you want, and you will get there.</p>
           </div>
 
-          <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
-          <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
+          <p>Thank you sooooo much for reading all the words above, now please feel free to start your journey in my space. Have a good time😊!</p>
+
       </div>
+      <br><br><br><br>
+
+
+      <div class="w3-content w3-center w3-large" style="max-width:700px" >
+          <p>If you would like to get in touch — <a href="mailto:pxh330@gmail.com" class="menu-item"><b>email me</b></a></p>
+          <br><br>
+          <p class="w3-medium">You are also welcome to connect me via</p>
+          <a href="https://www.instagram.com/xiaohan._peng/" ><i class="fab fa-instagram w3-xlarge"></i></a>&#160;&#160;&#160;
+          <a href="https://www.facebook.com/profile.php?id=100004547269134" ><i class="fab fa-facebook-square w3-xlarge"></i></a>&#160;&#160;&#160;
+          <a href="images/wechat.jpg" ><i class="fab fa-weixin w3-large"></i></a>
+      </div>
+      <br><br>
   </div>
   </div>
 
