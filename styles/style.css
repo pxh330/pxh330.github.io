@@ -1,443 +1,64 @@
 
-.border-green {
-  border-style: solid;
-  border-color: #a7d676;
-  border-width: 8px;
-  text-align: center;
+
+html {
+    scroll-behavior: smooth;
 }
-
-.border-blue {
-  border-style: solid;
-  border-color: #a8dee0;
-  border-width: 8px;
-  text-align: center;
+.menu-item:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    background: grey;
+    transition: width 0.1s ease 0s, left 0.5s ease 0s;
+    width: 0;
 }
-
-.box-big {
-  border-style: solid;
-  border-color: black;
-  border-width: 3px;
-  text-align: center;
-
+.menu-item:hover:after {
+    width: 100%;
+    left: 0;
 }
-
-.horizontal-box{
-  display: flex;
-  flex-direction: column;
-  flex-wrap:wrap;
-}
-
-.yellow-box {
-
-  /*background-color: #f9b86f;*/
-  max-width: 100%;
-  height: auto;
-  text-align: center;
-  background-color:#fbf7d6;
-}
-
-.blue-box {
-  background-color: #a8dee0;
-  color: black;
-  padding: 1vw;
-  margin:auto;
-  font-size:16px;
-  text-align: center;
-  width: 80vw;
-  max-width: 100%;
-  height: auto;
-}
-
-.green-box {
-  background-color: #a7d676;
-  color: black;
-  padding: 1vw;
-  text-align: center;
-  width: 80vw;
-  margin:auto;
-  max-width: 100%;
-  height: auto;
+.menu-item:focus{
+    border-bottom-style: solid;
+    border-color: black;
 
 }
-
-.white-box{
-
-  text-align: center;
-  color: black;
-  margin:auto;
-  position:relative;
-  width: 70%;
-  max-width: 100%;
-  height: auto;
+.menu-item{
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
 }
 
-body {
-  text-align: center;
-  background-color:#e1dee6;
-  font-size: 18px; /* px means "pixels": the base font size is now 10 pixels high  */
-  font-family: 'Source Sans Pro', sans-serif;/* this should be the rest of the output you got from Google fonts */
-}
-h1 {
-  color:black !important;
-  margin:0;
-   font-size: 6em;
-   text-align: center;
-   font-family: 'Amatic SC',cursive;
-   font-weight: lighter;
-   /*font-family: 'Reenie Beanie', cursive;*/
- }
-
-h2 {
-  font-size: 3em;
-  text-align: center;
-  font-family: 'Amatic SC',cursive;
-  font-weight: lighter;
-  /*font-family: 'Reenie Beanie', cursive;*/
-}
-h3{
-  font-family: 'Cabin Sketch', cursive;
-  font-weight: lighter;
-  font-size: 1.8em;
-
-}
-p, li{
-  font-size: 0.9em;
-  line-height: 1.5;
+#backtop{
+    animation-name:backshake;
+    height: auto;
+    width:30px;
+    position:fixed;
+    bottom:5%;
+    right:1%;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+    z-index: 3;
 }
 
-.pic{
-
-  width: 40%;
-  height: auto;
-}
-
-#vwpic{
-  width: 100%;
-  height: auto;
-}
-footer{
-  display: flex;
-  flex-direction:row;
-  position: relative;
-  bottom: 10px;
-
-}
-
-
-a {
-  color: #000;
-}
-
-
-a:hover {
-  color: #006400;
-  text-decoration: underline;
-
-}
-
-.iframe-container {
-  overflow: hidden;
-  padding-top: 21.25%;
-  position: relative;
-}
-
-.iframe-container iframe {
-  border: 0;
-  height: 100%;
-  left: 25%;
-  position: absolute;
-  top: 0;
-  width: 50%;
-}
-
-#brief{
-  font-family: 'Reenie Beanie', cursive;
-  font-size: 1.5em;
-  max-width:75%;
-  word-wrap:break-word;
-  margin:auto;
+@keyframes backshake {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    20% { transform: translate(0px, 5px) rotate(0deg); }
+    40% { transform: translate(0px, 0px) rotate(0deg); }
+    60% { transform: translate(0px, -2px) rotate(0deg); }
+    80% { transform: translate(0px, 1px) rotate(0deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 
 
-/* 4x3 Aspect Ratio */
-.iframe-container-4x3 {
-  padding-top: 75%;
-}
-
-#shaking1 {
-
-  max-width: 100%;
-  height: auto;
-  width: 16%;
-   animation-name:shake1;
-   animation-duration: 2s;
-   animation-iteration-count:infinite;
- }
-
-@keyframes shake1 {
-  0% { transform: translate(1px, 10px) rotate(0deg); }
-  20% { transform: translate(-3px, 0px) rotate(10deg); }
-  40% { transform: translate(0px, -10px) rotate(50deg); }
-  60% { transform: translate(-3px, 0px) rotate(0deg); }
-  80% { transform: translate(-1px, -10px) rotate(10deg); }
-  100% { transform: translate(0px, 0px) rotate(0deg); }
-}
-
-#shaking2 {
-  max-width: 100%;
-  height: auto;
-  width: 8%;
-  animation-name:shake2;
-  animation-duration: 2s;
-  animation-iteration-count:infinite;
-}
-
-@keyframes shake2 {
-  0% { transform: translate(5px, 10px) rotate(-10deg); }
-  20% { transform: translate(-10px, 0px) rotate(0deg); }
-  40% { transform: translate(-2px, -10px) rotate(-10deg); }
-  60% { transform: translate(-3px, 0px) rotate(0deg); }
-  80% { transform: translate(-10px, -10px) rotate(-30deg); }
-  100% { transform: translate(0px, 0px) rotate(0deg); }
-}
-
-#shaking3 {
-  animation-name:shake3;
-  max-width: 100%;
-  height: auto;
-  width: 11%;
-  animation-duration: 2s;
-  animation-iteration-count:infinite;
-}
-
-@keyframes shake3 {
-  0% { transform: translate(10px, 1px) rotate(0deg); }
-  20% { transform: translate(-30px, 0px) rotate(20deg); }
-  40% { transform: translate(10px, -1px) rotate(-50deg); }
-  60% { transform: translate(-30px, 1px) rotate(0deg); }
-  80% { transform: translate(-10px, -1px) rotate(20deg); }
-  100% { transform: translate(10px, -2px) rotate(0deg); }
-}
-
-
-#shaking4 {
-  animation-name:shake4;
-  max-width: 100%;
-  height: auto;
-  width: 10%;
-  animation-duration: 2s;
-  animation-iteration-count:infinite;
-}
-
-@keyframes shake4 {
-  0% { transform: translate(10px, 1px) rotate(0deg); }
-  20% { transform: translate(-20px, 0px) rotate(40deg); }
-  40% { transform: translate(5px, -10px) rotate(-30deg); }
-  60% { transform: translate(-10px, 10px) rotate(0deg); }
-  80% { transform: translate(-30px, -10px) rotate(60deg); }
-  100% { transform: translate(0px, -20px) rotate(0deg); }
-}
-
-
-
-#shaking5 {
-  animation-name:shake5;
-  max-width: 100%;
-  height: auto;
-  width: 8%;
-  animation-duration: 2s;
-  animation-iteration-count:infinite;
-}
-
-@keyframes shake5 {
-  0% { transform: translate(30px, 1px) rotate(0deg); }
-  20% { transform: translate(-30px, 20px) rotate(40deg); }
-  40% { transform: translate(40px, -10px) rotate(-30deg); }
-  60% { transform: translate(-20px, 1px) rotate(0deg); }
-  80% { transform: translate(10px, -10px) rotate(40deg); }
-  100% { transform: translate(10px, -2px) rotate(0deg); }
-}
-
-#shaking6 {
-  animation-name:shake6;
-  height: auto;
-  width: 20px;
-  position:fixed;
-  bottom:5%;
-  right:6%;
-  animation-duration: 2s;
-  animation-iteration-count:infinite;
-  z-index: 3;
-}
-
-@keyframes shake6 {
-  0% { transform: translate(-1px, 1px) rotate(0deg); }
-  20% { transform: translate(1px, 0px) rotate(5deg); }
-  40% { transform: translate(0px, -1px) rotate(0deg); }
-  60% { transform: translate(2px, 2px) rotate(-5deg); }
-  80% { transform: translate(1px, -1px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(5deg); }
-}
-
-
-.sidebar {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0;
-  left: 0;
-  background-color: #e6efcf; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 50px; /* Place content 60px from the top */
-  text-align: right;
-  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-   /* 0.5 second transition effect to slide in the sidebar */
-
-}
-
-/* The sidebar links */
-.sidebar a {
-  padding: 12px 20px 8px 32px;
-  text-decoration: none;
-  font-family: "Ubuntu Condensed", sans-serif;
-  font-size: 20px;
-  color: #646958;
-display: block;
-  transition: 0.5s;
-
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidebar a:hover {
-  color: #9da390;
-}
-
-/* Position and style the close button (top right corner) */
-
-
-#closebtn{
-  font-size: 20px;
-  cursor: pointer;
-  background-color: transparent;
-  color: black;
-  padding: 10px 15px;
-  border: none;
-  width:50px;
-  position:fixed;
-  bottom:5%;
-  z-index: 5;
-}
-
-  /* The button used to open the sidebar */
-#openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: transparent;
-  color: black;
-  padding: 10px 15px;
-  border: none;
-  width:50px;
-  position:fixed;
-  bottom:5%;
-  left:3%;
-  z-index: 4;
-
-}
-
-#openbtn:hover {
-  background-color: #e6efcf;
-  z-index: 5;
-}
-
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 600px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 10px;
-
-}
-
-.hide {
-  display:none;
-}
-
-header {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100vh;
-  background: url("../images/1.jpg") no-repeat center center;
-  background-size: cover;
-
-
-  margin: auto;
-}
-.hello {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-}
-hgroup {
-  display: inline-block;
-  text-align: center;
-  position: absolute;
-  width: 50%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 211px;
-  margin: auto;
-  color: #fff;
-  z-index: 2;
-
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background:url("../images/1blur.jpg") no-repeat center center;
-  background-size: cover;
-  z-index: 0;
-  opacity: 0;
-  height: auto;
-}
-*, *::before, *:after {
-  box-sizing: border-box;
-}
-#slogan{
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 1.5em;
-  color: #6e9488 !important;
-  margin: 0;
-font-weight: lighter;
-
-
-}
-
-
-@media screen and (max-width: 600px) {
-  .overlay {
-    background: url("../images/mobile1blur.jpg") no-repeat center center;
-    background-size: cover;
-  }
-
-  header {
-    background: url("../images/mobile1.jpg") no-repeat center center;
-    background-size: cover;
-  }
+@media only screen and (max-device-width: 1300px) {
+    .content {
+        width:85%;
+    }
 }

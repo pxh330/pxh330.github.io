@@ -8,6 +8,7 @@
       <script src="https://unpkg.com/scrollreveal"></script>
       <meta name="description" content="Hi everyone! I'm Xiaohan(Sharon) and this is my personal website. If you by any chance see it, nice to meet you!:)">
       <script src="https://kit.fontawesome.com/86ed8435df.js" crossorigin="anonymous"></script>
+      <link href="styles/style.css" rel="stylesheet">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
       <link rel="icon" href="images/icon.jpg">
       <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed|Francois+One|Playfair+Display:wght@800&display=swap" rel="stylesheet">
@@ -16,14 +17,15 @@
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="node_modules/fonts.css/dist/fonts.css">
+     
       <style>
           h1,h2,h3,h4,h5,h6 {font-family: 'Francois One', sans-serif;}
-          body {font-family: "Open Sans"}
+          body {font-family: "Open Sans",sans-serif;}
           .w3-theme {color:#000 !important; background-color:white; !important}
 
           .w3-hover-text-theme:hover{color:#868788  !important}
           .bgimg-1{
-              background-attachment: fixed;
+
               background-position: center;
               background-repeat: no-repeat;
               background-size: cover;
@@ -33,7 +35,7 @@
           /* First image (Logo. Full height) */
           .bgimg-1 {
               background-image: url('images/vw.jpg');
-
+              min-height: 580px;
           }
           #navDemo{
               display:none;
@@ -41,76 +43,13 @@
               width:250px;
 
           }
-          .menu-item:after {
-              background: none repeat scroll 0 0 transparent;
-              bottom: 0;
-              content: "";
-              display: block;
-              height: 1px;
-              left: 50%;
-              position: absolute;
-              background: grey;
-              transition: width 0.1s ease 0s, left 0.5s ease 0s;
-              width: 0;
-          }
-          .menu-item:hover:after {
-              width: 100%;
-              left: 0;
-          }
-          .menu-item:focus{
-              border-bottom-style: solid;
-               border-color: black;
-
-          }
-          .menu-item{
-              color: black;
-              text-transform: uppercase;
-              text-decoration: none;
-              letter-spacing: 0.15em;
-              display: inline-block;
-              padding: 15px 20px;
-              position: relative;
-          }
-
-          #backtop{
-              animation-name:backshake;
-              height: auto;
-              width:30px;
-              position:fixed;
-              bottom:5%;
-              right:1%;
-              animation-duration: 2s;
-              animation-iteration-count:infinite;
-              z-index: 3;
-          }
-
-          @keyframes backshake {
-              0% { transform: translate(0px, 0px) rotate(0deg); }
-              20% { transform: translate(0px, 5px) rotate(0deg); }
-              40% { transform: translate(0px, 0px) rotate(0deg); }
-              60% { transform: translate(0px, -2px) rotate(0deg); }
-              80% { transform: translate(0px, 1px) rotate(0deg); }
-              100% { transform: translate(0px, 0px) rotate(0deg); }
-          }
-
-          @media only screen and (max-device-width: 1600px) {
-              .bgimg-1 {
-                  background-attachment: scroll;
-                  min-height: 580px;
-              }
-          }
-
-          @media only screen and (max-device-width: 1300px) {
-              .content {
-                  width:85%;
-              }
-          }
-
       </style>
   </head>
 
   <body class="w3-content" id="top" style="max-width:1600px">
-
+  <script>
+      AOS.init();
+  </script>
 
   <!-- Navbar (sit on top) -->
   <div class="w3-top" >
@@ -160,9 +99,9 @@
       <a href="#top" ><img  id="backtop" src="images/up.png"></a>
       <!--Content-->
       <!-- Header -->
-  <header class="bgimg-1 w3-display-container w3-animate-opacity" id="topimg">
+  <header class="bgimg-1 w3-display-container w3-animate-opacity" id="topimg" >
       <div class="w3-display-middle w3-center">
-          <span class="w3-tag w3-padding w3-wide w3-sand w3-xlarge"><b>&#160;XIAOHAN'S</b> WORLD&#160;</span>
+          <span class="w3-tag w3-padding w3-wide w3-sand w3-xlarge" id="logo"><b>&#160;XIAOHAN'S</b> WORLD&#160;</span>
       </div>
 
   </header>
@@ -179,7 +118,7 @@
               <p>Don't be afraid to put on your adventure hat when you see something attractive. Just try it, commit to it, and see how far you can go. People tend to forget about their dreams nowadays, and some even don’t think they have one. I’m here to encourage you to bravely try your thoughts, which you might be reluctant to do at first. During your adventure, it's very likely that you may encounter something not quite like the way you thought before, or totally new to you…... But trust me, keep trying then you will eventually find what you want, and you will get there.</p>
           </div>
 
-          <p>Thank you sooooo much for reading all the words above, now please feel free to start your journey in my space. Have a good time😊!</p>
+          <p>Thank you sooooo much for reading all the words above, now please feel free to start your journey in my space. Have a good time :)!</p>
 
       </div>
       <br><br><br><br>
@@ -188,7 +127,7 @@
       <div class="w3-content content w3-center w3-large" style="max-width:700px" >
           <p>If you would like to get in touch — <a href="mailto:pxh330@gmail.com" class="menu-item"><b>email me</b></a></p>
           <br><br>
-          <p class="w3-medium">You are also welcome to connect me via</p>
+          <p class="w3-medium">You are also welcome to DM me via</p>
           <a href="https://www.instagram.com/xiaohan._peng/" ><i class="fab fa-instagram w3-xlarge"></i></a>&#160;&#160;&#160;
           <a href="https://www.facebook.com/profile.php?id=100004547269134" ><i class="fab fa-facebook-square w3-xlarge"></i></a>&#160;&#160;&#160;
           <a href="images/wechat.jpg" ><i class="fab fa-weixin w3-large"></i></a>
@@ -197,6 +136,7 @@
   </div>
   </div>
   <script>
+
       ScrollReveal().reveal('.w3-content', { delay: 250, reset: true, desktop: true });
   </script>
 
