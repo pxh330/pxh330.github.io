@@ -19,11 +19,7 @@ html {
     width: 100%;
     left: 0;
 }
-.menu-item:focus{
-    border-bottom-style: solid;
-    border-color: black;
 
-}
 .menu-item{
     color: black;
     text-transform: uppercase;
