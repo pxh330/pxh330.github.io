@@ -3,6 +3,17 @@
 html {
     scroll-behavior: smooth;
 }
+
+.menu-item{
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
 .menu-item:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
@@ -20,15 +31,7 @@ html {
     left: 0;
 }
 
-.menu-item{
-    color: black;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    display: inline-block;
-    padding: 15px 20px;
-    position: relative;
-}
+
 
 #backtop{
     animation-name:backshake;
