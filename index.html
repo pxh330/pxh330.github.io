@@ -37,7 +37,8 @@
           }
           #navDemo{
               display:none;
-              z-index:5;
+
+              z-index:6;
               width:280px;
           }
           .menu-item:focus{
@@ -47,10 +48,8 @@
       </style>
   </head>
 
-  <body class="w3-content" id="top" style="max-width:1600px">
-  <script>
-      AOS.init();
-  </script>
+  <body class="w3-content" id="top" style="max-width:2500px">
+
 
   <!-- Navbar (sit on top) -->
   <div class="w3-top" >
@@ -80,10 +79,12 @@
 
   </div>
 
+  <!--Overlay part-->
+  <div class="w3-overlay w3-animate-opacity w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+  <div>
 
-<br><br>
   <!--Sidebar-->
-  <div class="w3-sidebar w3-bar-block w3-hide w3-hide-large w3-animate-left" id="navDemo">
+  <div class="w3-sidebar w3-bar-block w3-hide-large w3-animate-left" id="navDemo">
       <div class="bar-item">
       <button class=" w3-button w3-xlarge w3-left w3-hover-none " onclick="location.href=''";><i class="fa fa-home"></i></button>
       <button class=" w3-button w3-xlarge w3-right w3-hover-none " onclick="w3_close()">&times;</button>
@@ -94,11 +95,10 @@
       <a href="#" class="menu-item w3-bar-item w3-button w3-hover-sand ">Contact</a>
   </div>
 
-  <!--Overlay part-->
-  <div class="w3-overlay w3-animate-opacity w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
-  <div>
+
       <a href="#top" ><img  id="backtop" src="images/up.png"></a>
       <!--Content-->
+
       <!-- Header -->
   <header class="bgimg-1 w3-display-container w3-animate-opacity" id="topimg" >
       <div class="w3-display-middle w3-center">
