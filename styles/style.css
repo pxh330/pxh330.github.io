@@ -67,15 +67,3 @@ html {
         width:85%;
     }
 }
-@media only screen and (max-device-width: 800px) {
-    .bgimg-1{
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url('../images/mobile-cover.png');
-        min-height: 580px;
-    }
-
-
-
-}
