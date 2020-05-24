@@ -38,6 +38,21 @@ html {
     background-image: url('../images/vw.jpg');
     min-height: 580px;
 }
+.bgimg-2{
+
+width:70%;
+height:auto;
+
+}
+
+.bgimg-3{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-height: 400px;
+
+}
 
 #backtop{
     animation-name:backshake;
