@@ -15,14 +15,14 @@ html {
 }
 
 .menu-item:after {
-    background: none repeat scroll 0 0 transparent;
+
     bottom: 0;
     content: "";
     display: block;
     height: 1px;
     left: 50%;
     position: absolute;
-    background: grey;
+    background: darkgrey;
     transition: width 0.1s ease 0s, left 0.5s ease 0s;
     width: 0;
 }
@@ -49,11 +49,14 @@ height:auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     min-height: 400px;
-
 }
-
+.bgimg-4{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 650px;
+}
 #backtop{
     animation-name:backshake;
     height: auto;
