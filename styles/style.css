@@ -51,6 +51,36 @@ height:auto;
     background-size: cover;
     min-height: 400px;
 }
+
+#bg3-1{
+    background-image: url('../images/birmingham/2.jpg')
+}
+
+#bg3-2{
+    background-image: url('../images/iceland/2.jpg')
+}
+
+#bgimg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 700px;
+    background-image: url('../images/mosaic-cover.jpg');
+    animation-name: expand;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    transition: ease-out;
+}
+@keyframes expand {
+    0%   {background-image: url('../images/mosaic-cover.jpg')}
+    25%  {background-image: url('../images/mosaic-cover-2.jpg')}
+    50%  {background-image: url('../images/mosaic-cover-3.jpg')}
+    75% {background-image: url('../images/mosaic-cover-4.jpg')}
+}
+
+
+
+
 .bgimg-4{
     background-position: center;
     background-repeat: no-repeat;
