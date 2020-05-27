@@ -112,20 +112,10 @@ height:auto;
 
 @media only screen and (max-device-width: 1000px) {
 
+    .my-container{
 
-    .topimg {
-        z-index: 1;
-        min-height: 950px;
-        width:auto;
-        max-width: 100%;
-        display:block;
+        background-image: url("../images/mosaic-cover-mobile-2.jpg");
 
     }
 
-    #bgimg{
-        min-height: 950px;
-        width:auto;
-        max-width: 100%;
-        display:block;
-    }
 }
