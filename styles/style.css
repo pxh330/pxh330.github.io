@@ -31,13 +31,8 @@ html {
     left: 0;
 }
 
-.bgimg-1{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('../images/vw.jpg');
-    min-height: 580px;
-}
+
+
 .bgimg-2{
 
 width:78%;
@@ -50,6 +45,26 @@ height:auto;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 400px;
+}
+.my-container{
+    position:absolute;
+    min-height: 550px;
+    z-index:0;
+    background-image: url("../images/mosaic-cover-2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.topimg {
+    z-index: 1;
+    width:100%;
+    height: auto;
+    min-height: 550px;
+
+
+
+
 }
 
 #bg3-1{
@@ -66,17 +81,11 @@ height:auto;
     background-size: cover;
     min-height: 700px;
     background-image: url('../images/mosaic-cover.jpg');
-    animation-name: expand;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    transition: ease-out;
+
+
 }
-@keyframes expand {
-    0%   {background-image: url('../images/mosaic-cover.jpg')}
-    25%  {background-image: url('../images/mosaic-cover-2.jpg')}
-    50%  {background-image: url('../images/mosaic-cover-3.jpg')}
-    75% {background-image: url('../images/mosaic-cover-4.jpg')}
-}
+
+
 
 
 

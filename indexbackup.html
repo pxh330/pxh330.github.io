@@ -38,23 +38,18 @@
             border-bottom-style: solid;
             border-color: black;
         }
-
-        .w3-animate-fading{
-            transition: ease-out;
-            transition-duration: 3s;
-        }
     </style>
 </head>
 
 
 
 
-<body class="w3-content w3-sand" id="top" style="max-width:2500px">
+<body class="w3-content" id="top" style="max-width:2500px">
 
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top" >
-    <div class="w3-bar w3-padding w3-theme w3-sand w3-card w3-opacity-min" id="myNavbar">
+    <div class="w3-bar w3-padding w3-theme w3-card w3-opacity-min" id="myNavbar">
         <a class="w3-bar-item w3-button w3-hover-sand w3-hide-large w3-right"  onclick="w3_open()" title="Toggle Navigation Menu">
             <i class="fa fa-bars"></i>
         </a>
@@ -85,7 +80,7 @@
 <div>
 
     <!--Sidebar-->
-    <div class="w3-sidebar w3-sand w3-bar-block w3-hide-large w3-animate-left" id="navDemo">
+    <div class="w3-sidebar w3-bar-block w3-hide-large w3-animate-left" id="navDemo">
         <div class="bar-item">
             <button class=" w3-button w3-xlarge w3-left w3-hover-none " onclick="location.href=''"><i class="fa fa-home"></i></button>
             <button class=" w3-button w3-xlarge w3-right w3-hover-none " onclick="w3_close()">&times;</button>
@@ -99,13 +94,10 @@
 
     <a href="#top" ><img id="backtop" src="images/up.png" alt="arrow"></a>
     <!--Content-->
-    <div  class="my-container w3-display-container "  >
-        <img class="topimg mySlides w3-animate-fading"  style="transition:ease-out;transition-duration: 3s;" src="images/mosaic-cover.jpg" alt="pink background picture">
-        <img class="topimg mySlides w3-animate-fading"  src="images/mosaic-cover-2.jpg" alt="pink background picture">
-        <img class="topimg mySlides w3-animate-fading"  src="images/mosaic-cover-3.jpg" alt="pink background picture">
-        <img class="topimg mySlides w3-animate-fading"  src="images/mosaic-cover-4.jpg" alt="pink background picture">
+
+    <div id="bgimg" class="bgimg-3 w3-display-container"  >
         <div class="w3-display-middle w3-center">
-            <span class="w3-xxxlarge w3-text-sand w3-hover-text-light-grey menu-item w3-hover-none "><b>Welcome.</b></span>
+            <span class="w3-xxlarge w3-text-white w3-hover-text-white menu-item w3-hover-none "><b>Welcome.</b></span>
         </div>
         <div class="w3-display-topright w3-right-align">
             <br><br><br>
@@ -113,8 +105,6 @@
 
         </div>
     </div>
-
-
 
     <!-- About Container -->
     <div class="w3-container" >
@@ -124,7 +114,7 @@
             <p>I'm Xiaohan, an engineering undergrad who is not very engineering. In my 2nd year of uni, I realized social media gradually became the only way people expressing themselves completely. You put basic info about you on facebook, some memorable moments on instagram, your education and profession on LinkedIn… Everything is formatted and I’m just so tired of using the same layout and wondering if I can make a website of my own, then I can put whatever I want to display on it, my art work, fun techy stuffs… everything.</p>
             <p>So, here I am. I learned basic html, css, javascript, some front-end frameworks and now as you can see, I’m gradually setting everything up. It’s not easy to learn something from scratch, but I found myself changing and gradually falling in love with what I’m doing along the way. At first my aim was to build a website, but I ended up obtaining front-end knowledge and eventually stepped into the fascinating world of computer science. </p>
             <p>I didn’t intend to tell a story, but I really want to tell YOU, who has read all of these this far:</p>
-            <div class="w3-panel w3-leftbar w3-sand w3-opacity-min">
+            <div class="w3-panel w3-leftbar w3-light-grey">
                 <p>Don't be afraid to put on your adventure hat when you see something attractive. Just try it, commit to it, and see how far you can go. People tend to forget about their dreams nowadays, and some even don’t think they have one. I’m here to encourage you to bravely try your thoughts, which you might be reluctant to do at first. During your adventure, it's very likely that you may encounter something not quite like the way you thought before, or totally new to you…... But trust me, keep trying then you will eventually find what you want, and you will get there.</p>
             </div>
 
@@ -175,21 +165,6 @@
         } else {
             x.className = x.className.replace(" w3-show", "");
         }
-    }
-
-    var myIndex = 0;
-    carousel();
-
-    function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}
-        x[myIndex-1].style.display = "block";
-        setTimeout(carousel, 8000);
     }
 </script>
 
