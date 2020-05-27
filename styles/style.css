@@ -121,11 +121,15 @@ height:auto;
 
     }
 
-    #bgimg{
-        min-height: 950px;
-        width:auto;
+    .my-container{
+        position:absolute;
+        height: 950px;
+        z-index:0;
+        background-image: url("../images/mosaic-cover-mobile-2.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         max-width: 100%;
-        display:block;
     }
 
 }
