@@ -58,7 +58,7 @@ height:auto;
 }
 .topimg {
     z-index: 1;
-    width:100%;
+    max-width: 100vw;
     height: auto;
     min-height: 550px;
 
