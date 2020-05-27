@@ -115,16 +115,16 @@ height:auto;
 
     .topimg {
         z-index: 1;
-        min-height: 900px;
+        min-height: 920px;
         width:auto;
         display:block;
-        max-width: 400px;
+        
     }
 
     #bgimg{
-        min-height: 900px;
+        min-height: 920px;
         width:auto;
-        max-width: 100%;
+
         display:block;
     }
 }
