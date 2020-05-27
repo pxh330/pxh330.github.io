@@ -52,7 +52,7 @@ height:auto;
 }
 .my-container{
     position:absolute;
-    min-height: 600px;
+    height: 600px;
     z-index:0;
     background-image: url("../images/mosaic-cover-2.jpg");
     background-position: center;
@@ -65,9 +65,7 @@ height:auto;
     z-index: 1;
     display:block;
     width: 100%;
-
-    min-height:600px;
-
+    height:600px;
 }
 
 #bg3-1{
@@ -99,6 +97,10 @@ height:auto;
     z-index: 3;
 }
 
+.img-1{
+
+}
+
 @keyframes backshake {
     0% { transform: translate(0px, 0px) rotate(0deg); }
     20% { transform: translate(0px, 5px) rotate(0deg); }
@@ -112,10 +114,6 @@ height:auto;
 
 @media only screen and (max-device-width: 1000px) {
 
-    .my-container{
 
-        background-image: url("../images/mosaic-cover-mobile-2.jpg");
-
-    }
 
 }
