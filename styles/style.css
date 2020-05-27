@@ -48,7 +48,7 @@ height:auto;
 }
 .my-container{
     position:absolute;
-    min-height: 550px;
+    min-height: 650px;
     z-index:0;
     background-image: url("../images/mosaic-cover-2.jpg");
     background-position: center;
@@ -60,7 +60,7 @@ height:auto;
     z-index: 1;
     max-width: 100vw;
     height: auto;
-    min-height: 550px;
+    min-height: 650px;
 
 
 
@@ -79,7 +79,7 @@ height:auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 700px;
+    min-height: 550px;
     background-image: url('../images/mosaic-cover.jpg');
 
 
@@ -94,7 +94,7 @@ height:auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 650px;
+    min-height: 550px;
 }
 #backtop{
     animation-name:backshake;
@@ -122,5 +122,21 @@ height:auto;
 @media only screen and (max-device-width: 1300px) {
     .content {
         width:85%;
+    }
+
+    .topimg {
+        z-index: 1;
+        max-width: 50vw;
+        height: auto;
+        min-height: 650px;
+
+    }
+
+    #bgimg{
+
+        min-height: 650px;
+
+
+
     }
 }
