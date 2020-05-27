@@ -97,9 +97,7 @@ height:auto;
     z-index: 3;
 }
 
-.img-1{
 
-}
 
 @keyframes backshake {
     0% { transform: translate(0px, 0px) rotate(0deg); }
@@ -114,6 +112,20 @@ height:auto;
 
 @media only screen and (max-device-width: 1000px) {
 
+    .topimg {
+        z-index: 1;
+        min-height: 950px;
+        width:auto;
+        max-width: 100%;
+        display:block;
 
+    }
+
+    #bgimg{
+        min-height: 950px;
+        width:auto;
+        max-width: 100%;
+        display:block;
+    }
 
 }
