@@ -117,14 +117,15 @@ height:auto;
         z-index: 1;
         min-height: 920px;
         width:auto;
+        max-width: 100%;
         display:block;
-        
+
     }
 
     #bgimg{
         min-height: 920px;
         width:auto;
-
+        max-width: 100%;
         display:block;
     }
 }
