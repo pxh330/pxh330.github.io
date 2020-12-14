@@ -52,7 +52,7 @@ height:auto;
 }
 .my-container{
     position:absolute;
-    height: 1200px;
+    height: 900px;
     z-index:0;
     background-image: url("../images/mosaic-cover-3.jpg");
     background-position: center;
@@ -65,7 +65,7 @@ height:auto;
     z-index: 1;
     display:block;
     width: 100%;
-    height:1000px;
+    height:900px;
 }
 
 #bg3-1{
