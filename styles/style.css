@@ -52,7 +52,7 @@ height:auto;
 }
 .my-container{
     position:absolute;
-    height: 600px;
+    height: 1200px;
     z-index:0;
     background-image: url("../images/mosaic-cover-3.jpg");
     background-position: center;
@@ -143,7 +143,7 @@ height:auto;
 
     .topimg {
         z-index: 1;
-        min-height: 950px;
+        min-height: 1000px;
         width:auto;
         max-width: 100%;
         display:block;
@@ -152,7 +152,7 @@ height:auto;
 
     .my-container{
         position:absolute;
-        height: 950px;
+        height: 1000px;
         z-index:0;
         background-image: url("../images/mosaic-cover-mobile-3.jpg");
         background-position: center;
