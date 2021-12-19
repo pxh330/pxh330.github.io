@@ -44,8 +44,8 @@ height:auto;
 }
 
 .portfolio{
-    width:60%;
-    height:160%;
+    width:55%;
+    height:100%;
 }
 
 .bigtext{
@@ -231,9 +231,9 @@ height:auto;
 .iframe-container iframe {
     position: absolute;
     top: 0;
-    left: 20%;
+    left: 25%;
     border: 0;
-    width: 60%;
+    width: 50%;
     height: 60%;
     bottom: 0;
 }
