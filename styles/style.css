@@ -231,9 +231,9 @@ height:auto;
 .iframe-container iframe {
     position: absolute;
     top: 0;
-    left: 25%;
+    left: 20%;
     border: 0;
-    width: 50%;
+    width: 60%;
     height: 60%;
     bottom: 0;
 }
