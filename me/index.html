@@ -4,24 +4,33 @@
     <title>Hi, I'm Xiaohan Peng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="author" content="Sharon">
+    <meta name="description" content="Hi, I'm Xiaohan and this is my personal website. If you by any chance see it, nice to meet you!:)">
+    <meta name="author" content="Xiaohan Peng">
+    <meta name="keywords" content="Xiaohan, pxh, blog">
     <script src="https://unpkg.com/scrollreveal"></script>
-    <meta name="description" content="Hi everyone! I'm Xiaohan(Sharon) and this is my personal website. If you by any chance see it, nice to meet you!:)">
     <script src="https://kit.fontawesome.com/86ed8435df.js" crossorigin="anonymous"></script>
-    <link href="../styles/style.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-    <link rel="icon" href="../images/icon.jpg">
+    <link rel="icon" href="images/icon.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:wght@700|Francois+One|Playfair+Display:wght@800" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-    <link rel="stylesheet" href="../styles/w3.css">
-    <link rel="stylesheet" type="text/css" href="../node_modules/fonts.css/dist/fonts.css">
-
+    <link rel="stylesheet" href="styles/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/fonts.css/dist/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         h1,h2,h3,h4,h5,h6 {font-family: 'Francois One','Open Sans Condensed', "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB",sans-serif;}
-        body {font-family: "Open Sans",sans-serif;}
+        body {font-family: "Lato",sans-serif; font-weight: 400; letter-spacing: 0.04em;}
         .w3-theme {color:#000 !important; background-color:white; !important}
-
         .w3-hover-text-theme:hover{color:#868788  !important}
 
 
@@ -36,6 +45,36 @@
         .menu-item:focus{
             border-bottom-style: solid;
             border-color: black;
+        }
+
+        .w3-animate-fading{
+            transition: ease-out;
+            transition-duration: 3s;
+        }
+
+        .typewriter {
+            color: #fff;
+            font-family: Barlow, sans-serif;
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid orange; /* The typwriter cursor */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em; /* Adjust as needed */
+            animation:
+                    typing 3.5s steps(30, end),
+                    blink-caret .5s step-end infinite;
+        }
+
+        /* The typing effect */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: transparent }
         }
     </style>
 </head>
