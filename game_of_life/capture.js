@@ -136,9 +136,9 @@ function binarize(threshold, context, w, h) {
             //need changes here: red is the colour indicator probably needs an array
             var red = context.getImageData(m, n, w, h).data[0];
             if(red == 0){
-              pixelVal[m][n] = 0;
-            }else{
               pixelVal[m][n] = 1;
+            }else{
+              pixelVal[m][n] = 0;
             }
         }
     }
@@ -156,4 +156,3 @@ imageToProcess.onload = function() {
     binarize(threshold, ctx, w, h);
 
 };
-

@@ -9,7 +9,76 @@ var leftBuffer; // split canvas into three parts, insBuffer means instrument, le
 var rightBuffer;
 var insBuffer;
 let gameFrameRate = 4;  //default frame rate = 4, corresponding with speed x1
-let patternLength = 4;
+var trackingFlag = false;
+var handsfree;
+
+let colorLib = [['#fc8370','#e8563f'],['#fcd277','#f5ba45'],
+                ['#b4e080','#8ac054'],['#62ddbd','#35bb9b'],
+                ['#73b1f4','#4b89da'],['#b3a5ef','#967ada'],
+                ['#f299ce','#d670ac'],['#f4d0b5','#e4b693']];
+
+let musicLibIndex = 0;  //define which music lib to choose
+let frameCount = 0;
+let instrumentType = 8;
+let instrumentCols = 32; //define the cols of each instrument's grid
+let instrumentRows = 2; //define the rows of each instrument's grid
+let instrumentGrids;  //8 x (32x2) grid
+let instrumentSound;
+let instrumentUnit = 2; // 2x2 means a unit
+let resolution = 30; //define the size of the minimal cell
+let playState = false; //0 means game stops, user can draw; 1 means game starts
+let part = new p5.Part();
+let phrase = new Array(instrumentType);
+let pattern = make2DArray(instrumentCols/instrumentUnit, instrumentType);
+let posX, posY, zoneY; //indicates the mouse's position in the grid
+var myCanvas;
+
+paint = []
+
+// This is like pmouseX and pmouseY...but for every finger [pointer, middle, ring, pinky]
+let prevPointer = [
+  // Left hand
+  [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}],
+  // Right hand
+  [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}]
+];
+
+// Landmark indexes for fingertips [pointer, middle, ring, pinky]...these are the same for both hands
+let fingertips = [8, 12, 16, 20];
+
+
+function startTracking(){
+  trackingFlag = true;
+  handsfree.start();
+}
+
+function stopTracking(){
+  for(let i = 0; i < instrumentCols; i++){
+    for(let j = 0; j < instrumentRows*instrumentType; j++){
+      let pixelX = i * resolution;
+      let pixelY = j * resolution;
+      let unitPixelSum = 0;
+      for(let x = pixelX; x < pixelX + resolution; x++){
+        for(let y = pixelY; y < pixelY + resolution; y++){
+          let readVal = get(x,y);
+          if((readVal[0]+readVal[1]+readVal[2]) > 0){
+            unitPixelSum++;
+          }
+        }
+      }
+      if(unitPixelSum > 0){
+        pixelVal[i][j] = 1;
+      }else{
+        pixelVal[i][j] = 0;
+      }
+    }
+  }
+  pixelFillFlag = true;
+  trackingFlag = false;
+  //handsfree.stop();
+  console.log('sketch translation finish');
+}
+
 
 function frameRateSet(rate){
   gameFrameRate = rate;
@@ -94,24 +163,7 @@ class instrumentGrid{
 }
 
 
-let colorLib = [['#fc8370','#e8563f'],['#fcd277','#f5ba45'],
-                ['#b4e080','#8ac054'],['#62ddbd','#35bb9b'],
-                ['#73b1f4','#4b89da'],['#b3a5ef','#967ada'],
-                ['#f299ce','#d670ac'],['#f4d0b5','#e4b693']];
 
-let frameCount = 0;
-let instrumentType = 8;
-let instrumentCols = 32; //define the cols of each instrument's grid
-let instrumentRows = 2; //define the rows of each instrument's grid
-let instrumentGrids;  //8 x (32x2) grid
-let instrumentSound;
-let instrumentUnit = 2; // 2x2 means a unit
-let resolution = 30; //define the size of the minimal cell
-let playState = false; //0 means game stops, user can draw; 1 means game starts
-let part = new p5.Part();
-let phrase = new Array(instrumentType);
-let pattern = make2DArray(instrumentCols/instrumentUnit, instrumentType);
-let posX, posY, zoneY; //indicates the mouse's position in the grid
 
 function preload(){
   soundFormats('wav', 'ogg');
@@ -119,38 +171,67 @@ function preload(){
   for(let i = 0; i < instrumentSound.length; i++){
     instrumentSound[i]  = loadSound('soundFile/instrument' + i + '.wav');
   }
-/*
-  img1 = loadImage("img/pattern1.jpg");
-  img2 = loadImage("img/pattern2.jpg");
-  img3 = loadImage("img/pattern3.png");
-  img4 = loadImage("img/pattern4.png");
 
- */
   img1 = loadImage("img/pattern1_inv.png");
   img2 = loadImage("img/pattern2_inv.png");
   img3 = loadImage("img/pattern3_inv.png");
   img4 = loadImage("img/pattern4_inv.png");
-  /*
-  drum1 = loadImage("instrumentImg/drum1.png");
-  drum2 = loadImage("instrumentImg/drum2.png");
-  drum3 = loadImage("instrumentImg/drum3.png");
-  drum4 = loadImage("instrumentImg/drum4.png");
-  drum5 = loadImage("instrumentImg/drum5.png");
-  drum6 = loadImage("instrumentImg/drum6.png");
-  drum7 = loadImage("instrumentImg/drum7.png");
-  drum8 = loadImage("instrumentImg/drum8.png");
-  */
+
 }
 
 
 function setup(){
 
-  var myCanvas = createCanvas(1020, 480);
+  myCanvas = createCanvas(1020, 480);
   //insBuffer = createGraphics(60,480);
   leftBuffer = createGraphics(960, 480);
   rightBuffer = createGraphics(60, 480);
   myCanvas.parent('canvasDiv');
 
+  // Colors for each fingertip
+  colorMap = [
+    // Left fingertips
+    [color(0, 0, 0), color(255, 0, 255), color(0, 0, 255), color(255, 255, 255)],
+    // Right fingertips
+    [color(255, 0, 0), color(0, 255, 0), color(0, 0, 255), color(255, 255, 0)]
+  ];
+
+  // #1 Turn on some models (hand tracking) and the show debugger
+  // @see https://handsfree.js.org/#quickstart-workflow
+  handsfree = new Handsfree({
+    showDebug: true, // Comment this out to hide the default webcam feed with landmarks
+    hands: true,
+    // Setup config. Ignore this to have everything done for you automatically
+    setup: {
+      // The canvas element to use for rendering debug info like skeletons and keypoints
+      canvas: {
+        hands: {
+          // The canvas element to hold the skeletons and keypoints for hand model
+          $el: null,
+          width: 700,
+          height: 400
+        }
+      },
+      // The video source to use.
+      // - If not present one will be created and use the webcam
+      // - If present without a source then the webcam will be used
+      // - If present with a source then that source will be used instead of the webcam
+      video: {
+        // The video element to hold the webcam stream
+        $el: null,
+        width: 700,
+        height: 400
+      },
+      wrap: {
+        // The element to put the video and canvas inside of
+        $el: null,
+        // The parent element
+        $parent: document.getElementById('handtrackingCanvas')
+      }
+    }
+  })
+  handsfree.enablePlugins('browser');
+  handsfree.plugin.pinchScroll.disable();
   // create an audio in
   mic = new p5.AudioIn();
 
@@ -184,28 +265,59 @@ function setup(){
 
 function draw(){
   console.log('pixelFillFlag: ' + pixelFillFlag);
-  console.log(gameFrameRate);
-  //detect whether there is a picture binarilization array value
-  if(pixelFillFlag == true){
-    for(let i = 0; i < pixelVal.length; i++){
-      for(let j = 0; j < pixelVal[i].length; j++){
-        let zone = int(j / 2);
-        let x = i;
-        let y = j % 2;
-        instrumentGrids[zone].grid[x][y] = pixelVal[i][j];
-      }
+  console.log('game frame rate: ' + gameFrameRate);
+  console.log('trackingFlag: ' + trackingFlag);
+  if(trackingFlag){
+    background(0);
+    fingerPaint();
+    mousePaint();
+    drawHands();
+  }else{
+    //clear the hand sketches
+    clear();
+    paint = [];
+    background("#fff1e6");
+
+    //detect whether there is a picture binarilization or hand tracking sketch array value
+    if(pixelFillFlag){
+      usePixelFillGrids();
     }
-    pixelFillFlag = false;
-    console.log(pixelVal);
-    for(let i = 0; i < instrumentGrids.length; i++){
-      console.log('instrument val: ' + i + instrumentGrids[i]);
+
+    //display the left and right buffer
+    displayCanvasElement();
+    //use rect to draw different cells
+    drawGridCells();
+    //if playState, run the game
+    if(playState){
+      playInstrument();//play the instrument sound
+      gridsGeneration();//compute next generation based on grid
+      frameCount++;
+    }
+
+    //in-time listen to the drag and drop event
+    patternDragDrop();
+  }
+}
+
+//fill the grids' value array from binarilazation array
+function usePixelFillGrids(){
+  for(let i = 0; i < pixelVal.length; i++){
+    for(let j = 0; j < pixelVal[i].length; j++){
+      let zone = int(j / 2);
+      let x = i;
+      let y = j % 2;
+      instrumentGrids[zone].grid[x][y] = pixelVal[i][j];
     }
   }
+  pixelFillFlag = false;
+  console.log(pixelVal);
+  for(let i = 0; i < instrumentGrids.length; i++){
+    console.log('instrument val: ' + i + instrumentGrids[i]);
+  }
+}
 
-  background("#fff1e6");
-  //insBuffer.background(0);
-  //rightBuffer.background(0);
-
+//draw the cells
+function drawGridCells(){
   for(let k = 0; k < instrumentGrids.length; k++){
     for(let i = 0; i < instrumentCols; i++){
       for(let j = 0; j < instrumentRows; j++){
@@ -222,61 +334,39 @@ function draw(){
       }
     }
   }
+}
 
-
-  if(playState == true){
-
-    //play the instrument sound
-
-    playInstrument();
-
-    //compute next generation based on grid
-    for(let k = 0; k < instrumentGrids.length; k++){
-      let next = make2DArray(instrumentCols, instrumentRows);
-      for(let i = 0; i < instrumentCols; i++){
-        for(let j = 0; j < instrumentRows; j++){
-          let state = instrumentGrids[k].grid[i][j];
-          let neighbors = countNeighbors(k, i, j);
-          if(state == 0 && neighbors == 3){
-            next[i][j] = 1;
-          }else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
-            next[i][j] = 0;
-          }else {
-            next[i][j] = state;
-          }
+//generate next frame's grids
+function gridsGeneration(){
+  for(let k = 0; k < instrumentGrids.length; k++){
+    let next = make2DArray(instrumentCols, instrumentRows);
+    for(let i = 0; i < instrumentCols; i++){
+      for(let j = 0; j < instrumentRows; j++){
+        let state = instrumentGrids[k].grid[i][j];
+        let neighbors = countNeighbors(k, i, j);
+        if(state == 0 && neighbors == 3){
+          next[i][j] = 1;
+        }else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
+          next[i][j] = 0;
+        }else {
+          next[i][j] = state;
         }
       }
-      instrumentGrids[k].grid = next;
     }
-    frameCount++;
+    instrumentGrids[k].grid = next;
   }
-  //when playstate == false i.e. paused
-  else{
+}
 
-  }
+function displayCanvasElement(){
+  //image(insBuffer, 0, 0, 60, 480);
+  image(leftBuffer, 0, 0, 960, 480);
+  image(rightBuffer, 960, 0, 60, 480);
 
-    //image(insBuffer, 0, 0, 60, 480);
-    image(leftBuffer, 0, 0, 960, 480);
-    image(rightBuffer, 960, 0, 60, 480);
-
-    //display pattern
-    image(img1,960,0,60,60);
-    image(img2,975,90,30,120);
-    image(img3,960,240,60,90);
-    image(img4,960,360,60,120);
-    //drag and drop patterns
-    patternDragDrop();
-    //instrument icons
-    /*
-    image(drum1,0,0,60,60);
-    image(drum2,0,60,60,60);
-    image(drum3,0,120,60,60);
-    image(drum4,0,180,60,60);
-    image(drum5,0,240,60,60);
-    image(drum6,0,300,60,60);
-    image(drum7,0,360,60,60);
-    image(drum8,0,420,60,60);
-    */
+  //display pattern
+  image(img1,960,0,60,60);
+  image(img2,975,90,30,120);
+  image(img3,960,240,60,90);
+  image(img4,960,360,60,120);
 }
 
 function updateMouseInGrid(){
@@ -386,38 +476,6 @@ function patternDragDrop(){
         }
 }
 
-function mouseClicked(){
-  updateMouseInGrid();  //calculate the mouse's position in the grid
-  if (instrumentGrids[zoneY].grid[posX][posY] == 0 && shapeMove == 0 && dragMove == 0){
-    instrumentGrids[zoneY].grid[posX][posY] = 1;
-  }else if(instrumentGrids[zoneY].grid[posX][posY] == 1 && shapeMove == 0 && dragMove == 0){
-    instrumentGrids[zoneY].grid[posX][posY] = 0;
-  }
-}
-
-function keyPressed(){
-
-  if(keyCode == 13){
-    playGame();
-  }
-
-  //add randomnized with key 'r' -xiaohan
-  if(key == 'r'){
-    if (!playState) {
-      randomBoard();
-    }
-  }
-  //add clear with 'w' -xiaohan
-  if(key == 'w'){
-    if (!playState) {
-      clearBoard();
-    }
-  }
-
-
-  console.log("keyPressed: "+keyCode + "playState: " + playState);
-}
-
 //count the number of live cells around a cell
 function countNeighbors(k, x, y){
   let sum = 0;
@@ -443,6 +501,7 @@ function playInstrument(){
     let valCols = instrumentCols / instrumentUnit;//16
     let valRows = instrumentType;//8
     let playIndex = frameCount % valCols; //indicate at this frame, in which col the sequencer is
+    let patternLength = 4;
 
     part = new p5.Part();
     phrase = new Array(instrumentType);
@@ -454,10 +513,27 @@ function playInstrument(){
       }
     }
     let patternVal = make2DArray(instrumentType, patternLength);  //store every instrument's type, for example drum - [1,0,0,0,0,0,0,0]
+
+    //use [1,0,0,0] to make a pattern
+    /*
     for(let i = 0; i < instrumentType; i++){
       patternVal[i][0] = areaVal[playIndex][i];
       for(let j = 1; j < patternLength; j++){
-        patternVal[i][j] = 0; // fill the silent beat with 0
+        patternVal[i][j] = 0;
+      }
+      phrase[i] = new p5.Phrase('instrument'+i, stepFunction(i), patternVal[i]);  //create a phrase with the pattern
+      part.addPhrase(phrase[i]);  ////add phrase to part
+    }
+    */
+
+    //use the real grid activation state to make a pattern
+    for(let i = 0; i < instrumentType; i++){
+      for(let j = 0; j < patternLength; j++){
+        if(j < 2){
+          patternVal[i][j] = instrumentGrids[i].grid[playIndex*2][j%2];
+        }else{
+          patternVal[i][j] = instrumentGrids[i].grid[playIndex*2 + 1][j%2];
+        }
       }
       phrase[i] = new p5.Phrase('instrument'+i, stepFunction(i), patternVal[i]);  //create a phrase with the pattern
       part.addPhrase(phrase[i]);  ////add phrase to part
@@ -473,10 +549,10 @@ function playInstrument(){
     userStartAudio();
     part.start();
 
-    //console.log(areaVal);
-    //console.log(patternVal);
-    //console.log("time to play: " + playIndex);
-    //console.log(part);
+    console.log(areaVal);
+    console.log(patternVal);
+    console.log("time to play: " + playIndex);
+    console.log(part);
 }
 //sum up the active cell numbers in a unit(containg 4 cells)
 function sumUnit(i, j){
@@ -511,13 +587,46 @@ function indexOfMax(arr) {
     return maxIndex;
 }
 
-
 function stepFunction(playIndex){
   var nestedFunction = function onEachStep(time, playbackRate) {
     instrumentSound[playIndex].rate(playbackRate);
     instrumentSound[playIndex].play(time);
   }
   return nestedFunction;
+}
+
+function keyPressed(){
+
+  if(keyCode == 13){
+    playGame();
+  }
+
+  //add randomnized with key 'r' -xiaohan
+  if(key == 'r'){
+    if (!playState) {
+      randomBoard();
+    }
+  }
+  //add clear with 'w' -xiaohan
+  if(key == 'w'){
+    if (!playState) {
+      clearBoard();
+    }
+  }
+
+
+  console.log("keyPressed: "+keyCode + "playState: " + playState);
+}
+
+function mouseClicked(){
+  if(mouseX<960 && mouseY<480){
+    updateMouseInGrid();  //calculate the mouse's position in the grid
+    if (instrumentGrids[zoneY].grid[posX][posY] == 0 && shapeMove == 0 && dragMove == 0){
+      instrumentGrids[zoneY].grid[posX][posY] = 1;
+    }else if(instrumentGrids[zoneY].grid[posX][posY] == 1 && shapeMove == 0 && dragMove == 0){
+      instrumentGrids[zoneY].grid[posX][posY] = 0;
+    }
+  }
 }
 
 function mousePressed(){
@@ -543,6 +652,7 @@ function mousePressed(){
   }
   else{
     shapeMove = 0;
+    console.log("no shape chose");
   }
 }
 
@@ -550,7 +660,6 @@ function mouseDragged(){
   if(shapeMove == 1){
     dragMove = 1;
   }
-  console.log("shapeDrag",shapeMove, patternMove);
 }
 
 function mouseReleased(){
@@ -560,7 +669,122 @@ function mouseReleased(){
   console.log("shapeRelease",shapeMove, patternMove);
 }
 
+function fingerPaint () {
+  // Canvas bounds to make drawing easier
+  // Since the canvas is inside an Iframe, we reach out and get it's containing iframe's bounding rect
+  let bounds = document.querySelector('canvas').getClientRects()[0]
+  // Check for pinches and create dots if something is pinched
+  const hands = handsfree.data?.hands
 
+  // Paint with fingers
+  if (hands?.pinchState) {
+    // Loop through each hand
+    hands.pinchState.forEach((hand, handIndex) => {
+      // Loop through each finger
+      hand.forEach((state, finger) => {
+        if (hands.landmarks?.[handIndex]?.[fingertips[finger]]) {
+
+          // Landmarks are in percentage, so lets scale up
+          let x = myCanvas.width - hands.landmarks[handIndex][fingertips[finger]].x * myCanvas.width
+          let y = hands.landmarks[handIndex][fingertips[finger]].y * myCanvas.height
+
+          // Start line on the spot that we pinched
+          if (state === 'start') {
+            prevPointer[handIndex][finger] = {x, y}
+
+          // Add a line to the paint array
+          } else if (state === 'held') {
+            paint.push([
+              prevPointer[handIndex][finger].x,
+              prevPointer[handIndex][finger].y,
+              x,
+              y,
+              colorMap[handIndex][finger]
+            ])
+          }
+
+          // Set the last position
+          prevPointer[handIndex][finger] = {x, y}
+        }
+      })
+    })
+  }
+
+  // Clear everything if the left [0] pinky [3] is pinched
+  if (hands?.pinchState && hands.pinchState[0][3] === 'released') {
+    paint = []
+  }
+
+  // Draw Paint
+  paint.forEach(p => {
+    fill(p[4])
+    stroke(p[4])
+    strokeWeight(10)
+
+    line(p[0], p[1], p[2], p[3])
+  })
+}
+
+
+
+/**
+ * Draw the mouse
+ */
+function mousePaint () {
+  if (mouseIsPressed === true) {
+    fill(colorMap[1][0])
+    stroke(colorMap[1][0])
+    strokeWeight(10)
+    line(mouseX, mouseY, pmouseX, pmouseY)
+  }
+}
+
+
+/**
+ * #3 Draw the hands into the P5 canvas
+ * @see https://handsfree.js.org/ref/model/hands.html#data
+ */
+function drawHands () {
+  const hands = handsfree.data?.hands
+
+  // Bail if we don't have anything to draw
+  if (!hands?.landmarks) return
+
+  // Draw keypoints
+  hands.landmarks.forEach((hand, handIndex) => {
+    hand.forEach((landmark, landmarkIndex) => {
+      // Set color
+      // @see https://handsfree.js.org/ref/model/hands.html#data
+      if (colorMap[handIndex]) {
+        switch (landmarkIndex) {
+          case 8: fill(colorMap[handIndex][0]); break
+          case 12: fill(colorMap[handIndex][1]); break
+          case 16: fill(colorMap[handIndex][2]); break
+          case 20: fill(colorMap[handIndex][3]); break
+          default:
+            fill(color(255, 255, 255))
+        }
+      }
+      // Set stroke
+      if (handIndex === 0 && landmarkIndex === 8) {
+        stroke(color(255, 255, 255))
+        strokeWeight(5)
+        circleSize = 40
+      } else {
+        stroke(color(0, 0, 0))
+        strokeWeight(0)
+        circleSize = 10
+      }
+
+      circle(
+        // Flip horizontally
+        myCanvas.width - landmark.x * myCanvas.width,
+        landmark.y * myCanvas.height,
+        circleSize
+      )
+    })
+  })
+}
 // sharon's experiment area
 //
 // sharon s experiment area
