@@ -14,16 +14,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:wght@700|Francois+One|Playfair+Display:wght@800" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-    <link rel="stylesheet" href="../styles/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../node_modules/fonts.css/dist/fonts.css">
+    <link rel="stylesheet" href="../styles/w3.css">
 
     <style>
         h1,h2,h3,h4,h5,h6 {font-family: 'Francois One','Open Sans Condensed', "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB",sans-serif;}
         body {font-family: "Open Sans",sans-serif;}
         .w3-theme {color:#000 !important; background-color:white; !important}
-
         .w3-hover-text-theme:hover{color:#868788  !important}
-
 
         /* First image (Logo. Full height) */
 
@@ -37,6 +36,7 @@
             border-bottom-style: solid;
             border-color: black;
         }
+
     </style>
 </head>
 <body class="w3-content" id="top" style="max-width:2500px">
@@ -44,7 +44,7 @@
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top" >
-    <div class="w3-bar w3-sand w3-padding w3-theme w3-card" id="myNavbar">
+    <div class="w3-bar w3-sand w3-padding w3-theme w3-card w3-opacity-min" id="myNavbar">
         <a class="w3-bar-item w3-button w3-hover-sand w3-hide-large w3-right"  onclick="w3_open()" title="Toggle Navigation Menu">
             <i class="fa fa-bars"></i>
         </a>
@@ -89,43 +89,61 @@
 
     <a href="#top" ><img id="backtop" src="../images/up.png" alt="arrow"></a>
     <!--Content-->
-    <div class="w3-container w3-sand" >
-        <div class="w3-content content w3-center" style="max-width:700px">
-            <br><br><br><br><br>
-            <h1 class="w3-center w3-padding-64"><span class=" menu-item" style="font-family:'Francois One','Open Sans Condensed','lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB',sans-serif">My Portfolio
-            </span></h1>
-            <a href="Parecare" class="w3-large w3-center w3-hover-none w3-hover-text-grey" style="font-weight: lighter;text-decoration: none;"><b>Parecare - A Mobile App Prototype on Caring for Parents</b></a><br>
-            <br>
-            <a href="../game_of_life" class="w3-large w3-center w3-hover-none w3-hover-text-grey" style="font-weight: lighter;text-decoration: none;"><b>Interactive Game of Life - Conway's Game of Life with Auditory, Visual and Gesture Interaction</b></a><br>
-            <br>
-            <a href="../aesthetic/my_wonderful_things" class="w3-large w3-center w3-hover-none w3-hover-text-grey" style="font-weight: lighter;text-decoration: none;"><b>My Graphical Design and Painting Works</b></a><br>
+    <div class="w3-center">
+        <div class="bg">
+            <div id="bg-portfolio-1" class="bg-portfolio w3-display-container"  >
+                <div class="w3-display-right">
+                    <span ><a href="Parecare" class="w3-right-align w3-text-black w3-hover-text-brown portfolio-item w3-button w3-hover-none "><h2 class="w3-xxlarge">Parecare<br>- A Mobile App Prototype on Caring for Parents</h2></a></span>
+                </div>
+            </div>
+
+            <div id="bg-portfolio-2" class="bg-portfolio w3-display-container"  >
+                <div class="w3-display-left">
+                    <span ><a href="../game_of_life" class="w3-left-align w3-text-black w3-hover-text-indigo portfolio-item w3-button w3-hover-none "><h2 class="w3-xxlarge">Interactive Game of Life <br>- Conway's Game of Life with Multimodal Interaction</h2></a></span>
+                </div>
+            </div>
+
+
+            <div id="bg-portfolio-3" class="bg-portfolio w3-display-container"  >
+                <div class="w3-display-right">
+                    <span ><a href="../aesthetic/my_wonderful_things" class="w3-right-align w3-text-black w3-hover-text-pink portfolio-item w3-button w3-hover-none "><h2 class="w3-xxlarge">My Graphical Design and Painting Works</h2></a></span>
+                </div>
+            </div>
 
         </div>
-        <br><br><br><br>
 
 
-        <div class="w3-content content w3-center w3-large" style="max-width:700px" >
-            <p>If you would like to get in touch — <a href="mailto:pxh330@gmail.com" class="menu-item"><b>email me</b></a></p>
-            <br><br>
-            <p class="w3-medium">You are also welcome to DM me via</p>
-            <a href="https://www.instagram.com/xiaohan._peng/" ><i class="fab fa-instagram w3-xlarge"></i></a>&#160;&#160;&#160;
-            <a href="https://www.facebook.com/profile.php?id=100004547269134" ><i class="fab fa-facebook-square w3-xlarge"></i></a>&#160;&#160;&#160;
-            <a href="../images/wechat.jpg" ><i class="fab fa-weixin w3-large"></i></a>
-            <br><br><br><br>
-            <p class="w3-small">Proudly designed and coded by myself.</p>
-            <div class="w3-small">
-                <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text">This work by
-                    <a rel="cc:attributionURL" href="https://pxh.me.uk"><span rel="cc:attributionName">Xiaohan Peng</span>
-                    </a>is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0">CC BY-NC-ND 4.0</a>
-                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0"><img src="../images/cc.xlarge.png" style="height:22px!important;margin-left: 3px;vertical-align:text-bottom"></a>
-                </p></div><br>
+
+        <div class="bgimg-3 w3-display-container " style="min-height: 450px" >
+            <div class="w3-center w3-text-black">
+                <br><br>
+                <p class="w3-large " style="font-weight:initial">If you would like to get in touch — <a href="mailto:pxh330@gmail.com" class="menu-item"><b >email me</b></a></p>
+                <br>
+                <p class="w3-medium">You are also welcome to DM me via</p>
+
+                <a href="https://www.instagram.com/xiaohan._peng/" ><i class="fab fa-instagram w3-xlarge"></i></a>&#160;&#160;&#160;
+                <a href="https://www.facebook.com/profile.php?id=100004547269134" ><i class="fab fa-facebook-square w3-xlarge"></i></a>&#160;&#160;&#160;
+                <a href="../images/wechat.jpg" ><i class="fab fa-weixin w3-large"></i></a>
+                <br><br><br><br>
+                <div class="w3-small">Proudly designed and coded by myself.</div>
+
+                <div class="w3-small">
+                    <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text">This work by
+                        <a rel="cc:attributionURL" href="https://pxh.me.uk"><span rel="cc:attributionName">Xiaohan Peng</span>
+                        </a>is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0">CC BY-NC-ND 4.0</a>
+                        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0"><img src="../images/cc.xlarge.png" style="height:22px!important;margin-left: 3px;vertical-align:text-bottom"></a>
+                    </p></div>
+            </div>
         </div>
+
 
     </div>
 </div>
 <script>
 
-    ScrollReveal().reveal('.w3-content', { delay: 250, reset: true, desktop: true });
+    ScrollReveal().reveal('h1', { delay: 200, reset: true, desktop: true});
+
+
 </script>
 
 <script>
@@ -143,16 +161,9 @@
 
 
     // Used to toggle the menu on small screens when clicking on the menu button
-    function toggleFunction() {
-        var x = document.getElementById("navDemo");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-        }
-    }
+
 </script>
 
-</div>
+
 </body>
 </html>

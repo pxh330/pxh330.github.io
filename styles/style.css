@@ -19,6 +19,16 @@ html {
     position: relative;
 }
 
+.portfolio-item{
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
 .menu-item:after {
 
     bottom: 0;
@@ -102,7 +112,24 @@ height:auto;
     background-image: url('../images/my_wonderful_things/3.jpg')
 }
 
+#bg-portfolio-1{
+    background-image: url('../images/parecare_cover.jpg')
+}
 
+#bg-portfolio-2{
+    background-image: url('../images/gol_cover.jpg')
+}
+
+#bg-portfolio-3{
+    background-image: url('../images/graphical_cover.jpg')
+}
+
+.bg-portfolio{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 340px;
+}
 
 
 
