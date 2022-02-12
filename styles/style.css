@@ -112,15 +112,15 @@ height:auto;
     background-image: url('../images/my_wonderful_things/3.jpg')
 }
 
-#bg-portfolio-1{
+.bg-portfolio-1{
     background-image: url('../images/parecare_cover.jpg')
 }
 
-#bg-portfolio-2{
+.bg-portfolio-2{
     background-image: url('../images/gol_cover.jpg')
 }
 
-#bg-portfolio-3{
+.bg-portfolio-3{
     background-image: url('../images/graphical_cover.jpg')
 }
 
