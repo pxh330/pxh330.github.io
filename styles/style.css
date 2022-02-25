@@ -30,7 +30,6 @@ html {
 }
 
 .menu-item:after {
-
     bottom: 0;
     content: "";
     display: block;
@@ -122,6 +121,10 @@ height:auto;
 
 .bg-portfolio-3{
     background-image: url('../images/graphical_cover.jpg')
+}
+
+.bg-portfolio-4{
+    background-image: url('../images/prototype_cover.jpg')
 }
 
 .bg-portfolio{
@@ -295,3 +298,6 @@ body {
     }
 }
 
+.body_black{
+    background: black;
+}
