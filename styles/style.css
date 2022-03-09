@@ -54,8 +54,13 @@ html {
 
 .portfolio{
     width:70%;
-
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
+
+
 
 .portfolio_small{
     width:90%;
