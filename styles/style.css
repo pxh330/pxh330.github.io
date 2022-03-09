@@ -53,7 +53,7 @@ html {
 }
 
 .portfolio{
-    width:65%;
+    width:70%;
 
 }
 
@@ -315,7 +315,7 @@ body {
 .videoWrapper iframe {
     position: absolute;
     top: 0;
-    left: 20%;
-    width: 60%;
+    left: 15%;
+    width: 70%;
     height: 100%;
 }
