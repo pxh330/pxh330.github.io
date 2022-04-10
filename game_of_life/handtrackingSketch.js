@@ -340,7 +340,17 @@ function drawGridCells(){
     }
   }
 }
-
+let instrumentGridsNext;
+instrumentGridsNext = new Array(instrumentType);
+for(let k=0; k < instrumentGridsNext.length; k++){
+  let instrumentOffsetY = k * instrumentRows * resolution;
+  instrumentGridsNext[k] = new instrumentGrid(instrumentOffsetY, colorLib[k][0], colorLib[k][1], instrumentCols, instrumentRows);
+  for(let i = 0; i < instrumentCols; i++){
+    for(let j = 0; j < instrumentRows; j++){
+      instrumentGridsNext[k].grid[i][j] = 0;
+    }
+  }
+}
 //generate next frame's grids
 function gridsGeneration(){
   for(let k = 0; k < instrumentGrids.length; k++){
@@ -358,7 +368,10 @@ function gridsGeneration(){
         }
       }
     }
-    instrumentGrids[k].grid = next;
+    instrumentGridsNext[k].grid = next;
+  }
+  for(let k = 0; k < instrumentGrids.length; k++){
+    instrumentGrids[k].grid = instrumentGridsNext[k].grid;
   }
 }
 
